@@ -1,0 +1,58 @@
+[production]
+
+phpSettings.display_startup_errors = 1
+phpSettings.display_errors = 1
+phpSettings.error_reporting = -1
+
+bootstrap.path = APPLICATION_PATH "/Bootstrap.php"
+bootstrap.class = "Bootstrap"
+
+resources.frontController.moduleDirectory = APPLICATION_PATH "/modules"
+resources.frontController.defaultModule = "home"
+resources.frontController.moduleControllerDirectoryName = "controllers"
+resources.frontController.params.displayExceptions = 1
+
+resources.layout.layout = "layout"
+resources.layout.layoutPath = APPLICATION_PATH "/layouts/scripts"
+
+resources.multidb.qaw.adapter = "pdo_mysql"
+resources.multidb.qaw.host = localhost
+resources.multidb.qaw.username = "<%= @dbUser -%>"
+resources.multidb.qaw.password = "<%= @dbPassword -%>"
+resources.multidb.qaw.dbname = "<%= @dbName -%>"
+
+; TODO: move to settings table in qaw_config
+admin.sourcedb.adapter = "pdo_mysql"
+admin.sourcedb.host = "localhost"
+admin.sourcedb.username = "<%= @dbUser -%>"
+admin.sourcedb.password = "<%= @dbPassword -%>"
+
+; TODO: move to settings table in qaw_config
+admin.targetdb.adapter = "pdo_mysql"
+admin.targetdb.host = "localhost"
+admin.targetdb.username = "<%= @dbUser -%>"
+admin.targetdb.password = "<%= @dbPassword -%>"
+
+
+resources.locale.default = "en_US"
+resources.log.stream.writerName = "Firebug"
+
+; When using an Apache alias you must specify the alias here.
+; In that case you must also modify
+; <qaw_install_dir>/public/.htaccess
+resources.frontController.baseUrl = "/<%= @repodir -%>"
+resources.db.params.profiler.enabled = 1
+resources.db.params.profiler.class = Zend_Db_Profiler_Firebug
+
+constants.appVersion = 2.0
+
+transform.parser.libdir = APPLICATION_PATH "/configs/qaw_lib"
+
+; Directory into which to save compiled templates.
+; Make sure it exists and is writable for the application
+; (apache user)
+transform.parser.outputdir = APPLICATION_PATH "/../ext/transformers"
+
+; Directory for CSV file uploads
+import.uploaddir = "/tmp"
+
