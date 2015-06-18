@@ -56,7 +56,7 @@ $repokeyname = $role_etlw::repokeyname
     provider  => $role_etlw::repotype,
     source    => $role_etlw::coderepo,
     user      => 'root',
-    revision  => 'master',
+    revision  => $role_etlw::reporevision,
     require   => Package['git']
   }
 

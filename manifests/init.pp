@@ -15,6 +15,7 @@ class role_etlw (
   $repokey                                = undef,
   $repokeyname                            = 'githubkey',
   $repodir                                = 'etlw',
+  $reporevision                           = 'master',
   $builddir                               = '/opt/etlw',
   $enable_phpmyadmin                      = false,
   $mysql_root_password                    = 'rootpassword',
